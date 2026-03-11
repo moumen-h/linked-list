@@ -4,6 +4,7 @@
 typedef enum Status {
   SUCCESS = 0,
   FAILURE = 1,
+  INVALID_ARGUMENT = 2,
 } Status;
 
 typedef struct Node {
