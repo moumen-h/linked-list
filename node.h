@@ -12,7 +12,20 @@ typedef struct Node {
   int value;
 } Node;
 
+/*
+ * Creates a node of a linked list
+ *
+ * @return a pointer to the created node,
+ * or NULL if failed.
+ * */
 Node *create(int value);
+
+/*
+ * Frees all nodes of a linked list.
+ *
+ * @return SUCCESS if the list was destroyed successfully,
+ *         INVALID_ARGUMENT if head is NULL
+ * */
 Status destroy(Node *head);
 
 Status append(Node *head, int value);
