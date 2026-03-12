@@ -28,8 +28,23 @@ Node *create(int value);
  * */
 Status destroy(Node *head);
 
+/*
+ * Creates and adds a node to the end of a linked list.
+ *
+ * @return SUCCESS if the node was appended successfully,
+ * FAILURE if failed, or INVALID_ARGUMENT if head is NULL.
+ */
 Status append(Node *head, int value);
-Status prepend(Node **head, int value);
+
+/*
+ * Creates and adds a node to the beginning of a linked list.
+ *
+ * @param pHead A pointer to the head pointer.
+ * @param value The value stored in the node.
+ * @return SUCCESS if the node was appended successfully,
+ * FAILURE if failed, or INVALID_ARGUMENT if pHead is NULL.
+ * */
+Status prepend(Node **pHead, int value);
 Status insertAt(Node *head, int index, int value);
 
 int removeFirst(Node **head);

@@ -26,3 +26,32 @@ Status destroy(Node *head) {
 
   return SUCCESS;
 }
+
+Status append(Node *head, int value) {
+  if (!head)
+    return INVALID_ARGUMENT;
+
+  Node *current = head;
+  while (current->next)
+    current = current->next;
+
+  current->next = create(value);
+  if (!current->next)
+    return FAILURE;
+
+  return SUCCESS;
+}
+
+Status prepend(Node **pHead, int value) {
+  if (!pHead)
+    return INVALID_ARGUMENT;
+
+  Node *new = create(value);
+  if (!new)
+    return FAILURE;
+
+  new->next = *pHead;
+  *pHead = new;
+
+  return SUCCESS;
+}
