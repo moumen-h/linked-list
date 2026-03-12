@@ -55,3 +55,18 @@ Status prepend(Node **pHead, int value) {
 
   return SUCCESS;
 }
+
+int getLength(Node *head) {
+  if (!head)
+    return -1;
+
+  int length = 0;
+  Node *current = head;
+
+  while (current) {
+    length++;
+    current = current->next;
+  }
+
+  return length;
+}

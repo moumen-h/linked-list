@@ -47,10 +47,16 @@ Status append(Node *head, int value);
 Status prepend(Node **pHead, int value);
 Status insertAt(Node *head, int index, int value);
 
-int removeFirst(Node **head);
+int removeFirst(Node **pHead);
 int removeLast(Node *head);
 int removeAt(Node *head, int index);
 
+/*
+ * Gets the length of a linked list
+ *
+ * @return length of the linked list,
+ * or -1 if head is NULL.
+ * */
 int getLength(Node *head);
 int getFirst(Node *head);
 int getLast(Node *head);
