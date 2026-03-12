@@ -1,5 +1,6 @@
 #include "node.h"
 #include <stdlib.h>
+#include <threads.h>
 
 Node *create(int value) {
   Node *node = malloc(sizeof(*node));
@@ -69,4 +70,30 @@ int getLength(Node *head) {
   }
 
   return length;
+}
+
+Status insertAt(Node **pHead, int index, int value) {
+  if (!pHead || index > getLength(*pHead) || index < 0)
+    return INVALID_ARGUMENT;
+
+  Node *current = *pHead;
+  for (int i = 0; i < index - 1; i++)
+    current = current->next;
+
+  Node *new = create(value);
+  if (!new)
+    return FAILURE;
+
+  if (index == 0) {
+    Node *next = *pHead;
+    *pHead = new;
+    (*pHead)->next = next;
+    return SUCCESS;
+  }
+
+  Node *next = current->next;
+  current->next = new;
+  current->next->next = next;
+
+  return SUCCESS;
 }

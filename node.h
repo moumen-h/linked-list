@@ -45,7 +45,18 @@ Status append(Node *head, int value);
  * FAILURE if failed, or INVALID_ARGUMENT if pHead is NULL.
  * */
 Status prepend(Node **pHead, int value);
-Status insertAt(Node *head, int index, int value);
+
+/*
+ * Creates and inserts a node at a specific index in a linked list.
+ *
+ * @param pHead A pointer to the head pointer.
+ * @param index The index of the newly inserted node.
+ * @param value The value stored in the newly inserted node.
+ * @return SUCCESS if the node was successfully inserted,
+ * FAILURE if failed, or INVALID_ARGUMENT if pHead is NULL, or
+ * index is out of bounds.
+ * */
+Status insertAt(Node **pHead, int index, int value);
 
 int removeFirst(Node **pHead);
 int removeLast(Node *head);
