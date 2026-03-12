@@ -58,9 +58,33 @@ Status prepend(Node **pHead, int value);
  * */
 Status insertAt(Node **pHead, int index, int value);
 
-int removeFirst(Node **pHead);
-int removeLast(Node *head);
-int removeAt(Node *head, int index);
+/*
+ * Removes the first node of a linked list.
+ *
+ * @param pHead a pointer to the head pointer.
+ * @return SUCCESS if the node was removed successfully,
+ * or INVALID_ARGUMENT if phead is NULL.
+ * */
+Status removeFirst(Node **pHead);
+
+/*
+ * Removes the last node of a linked list.
+ *
+ * @param pHead A pointer to the head pointer.
+ * @return SUCCESS if the node was removed successfully,
+ * or INVALID_ARGUMENT if phead is NULL.
+ * */
+Status removeLast(Node **pHead);
+
+/*
+ * Removes a node at a specific index in a linked list.
+ *
+ * @param pHead A pointer to the head pointer.
+ * @param index The index of the node to be removed.
+ * @return SUCCESS if the node was removed successfully,
+ * or INVALID_ARGUMENT if phead is NULL.
+ * */
+Status removeAt(Node **pHead, int index);
 
 /*
  * Gets the length of a linked list

@@ -97,3 +97,59 @@ Status insertAt(Node **pHead, int index, int value) {
 
   return SUCCESS;
 }
+
+Status removeFirst(Node **pHead) {
+  if (!pHead)
+    return INVALID_ARGUMENT;
+
+  Node *old = *pHead;
+  *pHead = (*pHead)->next;
+
+  free(old);
+
+  return SUCCESS;
+}
+
+Status removeLast(Node **pHead) {
+  if (!pHead)
+    return INVALID_ARGUMENT;
+
+  Node *current = *pHead;
+
+  if (!current->next) {
+    free(current);
+    *pHead = NULL;
+    return SUCCESS;
+  }
+
+  while (current->next->next)
+    current = current->next;
+
+  free(current->next);
+  current->next = NULL;
+
+  return SUCCESS;
+}
+
+Status removeAt(Node **pHead, int index) {
+  if (!pHead || index > getLength(*pHead) - 1 || index < 0)
+    return INVALID_ARGUMENT;
+
+  Node *current = *pHead;
+
+  if (index == 0) {
+    *pHead = (*pHead)->next;
+    free(current);
+    return SUCCESS;
+  }
+
+  for (int i = 0; i < index - 1; i++)
+    current = current->next;
+
+  Node *old = current->next;
+  current->next = current->next->next;
+
+  free(old);
+
+  return SUCCESS;
+}
