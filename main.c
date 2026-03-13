@@ -25,6 +25,9 @@ int main(void) {
 
   // create the head node
   Node *head = create(fibonacci(1));
+  if (!head)
+    return 1;
+
   // append the rest of the fibonacci sequence
   for (int i = 1; i < 20; i++)
     append(head, fibonacci(i + 1));
