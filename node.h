@@ -118,6 +118,12 @@ int getLast(Node *head);
  * */
 int get(Node *head, int index);
 
+/*
+ * Finds the first instance of a node with the specified value.
+ *
+ * @return index of the first node with the specified value,
+ * or -1 if head is NULL or the value doesn't exist.
+ * */
 int findFirst(Node *head, int value);
 
 #endif

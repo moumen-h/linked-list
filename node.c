@@ -184,3 +184,21 @@ int get(Node *head, int index) {
 
   return current->value;
 }
+
+int findFirst(Node *head, int value) {
+  if (!head)
+    return -1;
+
+  Node *current = head;
+  int index = 0;
+
+  while (current) {
+    if (current->value == value)
+      return index;
+
+    index++;
+    current = current->next;
+  }
+
+  return -1;
+}
