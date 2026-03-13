@@ -1,6 +1,6 @@
 #include "node.h"
+#include <limits.h>
 #include <stdlib.h>
-#include <threads.h>
 
 Node *create(int value) {
   Node *node = malloc(sizeof(*node));
@@ -152,4 +152,35 @@ Status removeAt(Node **pHead, int index) {
   free(old);
 
   return SUCCESS;
+}
+
+int getFirst(Node *head) {
+  if (!head)
+    return INVALID_ARGUMENT;
+
+  return head->value;
+}
+
+int getLast(Node *head) {
+  if (!head)
+    return INT_MIN;
+
+  Node *current = head;
+
+  while (current->next)
+    current = current->next;
+
+  return current->value;
+}
+
+int get(Node *head, int index) {
+  if (!head || index > getLength(head) - 1 || index < 0)
+    return INT_MIN;
+
+  Node *current = head;
+
+  for (int i = 0; i < index; i++)
+    current = current->next;
+
+  return current->value;
 }

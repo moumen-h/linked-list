@@ -93,9 +93,30 @@ Status removeAt(Node **pHead, int index);
  * or -1 if head is NULL.
  * */
 int getLength(Node *head);
+
+/*
+ * Gets the value stored in the first node of a linked list.
+ *
+ * @return value stored in the first node,
+ * or INT_MIN if head is NULL.
+ * */
 int getFirst(Node *head);
+
+/*
+ * Gets the value stored in the last node of a linked list.
+ *
+ * @return value stored in the last node,
+ * or INT_MIN if head is NULL.
+ * */
 int getLast(Node *head);
-int at(Node *head, int index);
+
+/*
+ * Gets the value stored in the node at the specified index.
+ *
+ * @return value stored in the node at the specified index,
+ * or INT_MIN if head is NULL.
+ * */
+int get(Node *head, int index);
 
 int findFirst(Node *head, int value);
 
