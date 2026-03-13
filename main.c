@@ -1,7 +1,10 @@
 #include "node.h"
 #include <stdio.h>
 
-// Returns the n-th number of the fibonacci sequence
+/*
+ * Returns the n-th number of the fibonacci sequence,
+ * or -1 if the parameter is invalid.
+ * */
 int fibonacci(int n) {
   if (n < 1)
     return -1;
