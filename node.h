@@ -17,6 +17,8 @@ typedef struct Node {
  *
  * @return a pointer to the created node,
  * or NULL if failed.
+ * Ownership of the returned node is transferred to the caller.
+ * The caller is responsible for releasing it using destroy().
  * */
 Node *create(int value);
 
