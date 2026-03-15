@@ -1,16 +1,24 @@
 CC = gcc
-TARGET = build/main.out
+BUILD_DIR = build
+BIN = $(BUILD_DIR)/main.out
+SRC = $(wildcard *.c)
+OBJ = $(patsubst %.c, $(BUILD_DIR)/%.o, $(SRC))
 
-$(TARGET): build/main.o build/node.o
+.PHONY: all clean run
+
+all: $(BIN)
+
+$(BIN): $(OBJ)
 	$(CC) $^ -o $@
 
-build/main.o: main.c
-	mkdir -p build/
+$(BUILD_DIR)/%.o: %.c | $(BUILD_DIR)
 	$(CC) -c $< -o $@
 
-build/node.o: node.c
-	mkdir -p build/
-	$(CC) -c $< -o $@
+$(BUILD_DIR):
+	mkdir -p $@
+
+run: $(BIN)
+	./$<
 
 clean:
-	rm -rf build/
+	rm -rf $(BUILD_DIR)
